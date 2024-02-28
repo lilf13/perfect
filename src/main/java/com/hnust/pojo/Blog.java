@@ -19,7 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Blog {
 
-    private Long id;//dasdwad
+    private Long id;
     private Long userId;
     private String title;
     private String contentPath;
