@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hnust.repository.ComMapper">
+    <resultMap id="comResultMap" type="Com">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="blog_id" property="blogId"/>
+        <result column="parent_com_id" property="parentComId"/>
+        <result column="content" property="content"/>
+        <result column="likes_count" property="likesCount"/>
+        <result column="replies_count" property="repliesCount"/>
+        <result column="release_date" property="releaseDate"/>
+        <association property="user"
+                     select="com.hnust.repository.UserMapper.selectByUserId"
+                     column="user_id"
+                     fetchType="lazy"/>
+    </resultMap>
+
+    <insert id="saveComment" useGeneratedKeys="true" keyProperty="id">
+        insert into com(id, user_id, blog_id,parent_com_id,content, likes_count ,replies_count,release_date) VALUE (#{id},#{userId},#{blogId},#{parentComId},#{content},#{likesCount},#{repliesCount},#{releaseDate})
+    </insert>
+
+    <select id="selectHighQualityCommentsStep" resultMap="comResultMap">
+        select id,user_id,blog_id,parent_com_id,content,likes_count,replies_count,release_date from com
+        where blog_id=#{blogId} and parent_com_id is null
+        order by likes_count
+    </select>
+    
+    <select id="selectReplyByParentComId" resultMap="comResultMap">
+        select id,user_id,blog_id,parent_com_id,content,likes_count,replies_count,release_date from com
+        where parent_com_id=#{parentComId}
+        order by likes_count
+    </select>
+
+    <select id="selectByComId">
+        select id,user_id,blog_id,parent_com_id,content,likes_count,replies_count,release_date from com
+        where id=#{comId}
+    </select>
+
+    <update id="updateCom">
+        update com set replies_count=#{repliesCount}
+        where id=#{id}
+    </update>
+
+    <select id="selectNumberOfComments">
+        select count(1) from com where blog_id=#{blogId}
+    </select>
+</mapper>

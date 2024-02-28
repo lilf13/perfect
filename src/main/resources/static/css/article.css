@@ -1,0 +1,273 @@
+/*页面为文章*/
+#article {
+    background-color: rgba(248, 248, 255, 0.35);
+}
+/*主要页面*/
+#mainDiv {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    z-index: 1;
+}
+/*标签栏*/
+.tag {
+    position: relative;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.2); /* 阴影样式 */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 60px;
+    overflow: hidden;
+}
+.tag ul {
+    position: relative;
+    padding-left: 10%;
+    top: -30%;
+}
+.tag ul li{
+    display: inline-block;
+    margin-right: 50px;
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 15px;
+    background-color: #ffe7e7;
+    border: 1px solid transparent; /* 定义 2px 的边框，颜色为透明 */
+}
+.tag ul li:hover {
+    border-color: #eaa6a6 !important; /* 鼠标悬停时改变边框颜色 */
+}
+.tag ul li a {
+    text-decoration: none;
+    font-size: 14px;
+    font-family: "微软雅黑 Light";
+    font-weight: bold;
+    color: #d33a2c;
+}
+/*文章数量div*/
+#allArticleAndNumDiv {
+    position: relative;
+    margin-top: 2%;
+    background-color: #ffffff;
+    width: 80%;
+    height: 30%;
+    padding-left: 8%;
+}
+#numSpan {
+    position: absolute;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+   /* left: 8%;*/
+    top: 20%;
+    font-size: 13px;
+    font-family: "微软雅黑 Light";
+    color: #020202;
+    font-style: italic;
+    display: inline;
+}
+/*所有文章包括页面导航栏*/
+#allDiv {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 0 0 0 0;
+    margin: 8% 0 0;
+    overflow: hidden;
+}
+.userArticleDiv {
+    position: relative;
+    left: 7%;
+    width: 92%;
+    height: auto;
+    padding-left: 8%;
+    margin-bottom: 3%;
+    display: block; /* 将 display 属性设置为 block */
+    overflow: hidden;
+}
+
+/*用户文章头像*/
+.userArticleIconDiv {
+    position: relative;
+    top: 2.5%;
+    margin: 0;
+    padding-right: 15px;
+    padding-top: 10px;
+    display: inline-block;
+    cursor: pointer;
+}
+.userArticleIconDiv::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 8px; /* 调整高度以控制阴影的明显程度 */
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2); /* 调整颜色和透明度以控制阴影的样式 */
+    transition: opacity 0.3s ease-in-out; /* 添加过渡效果 */
+    opacity: 1; /* 初始设置为完全显示 */
+}
+
+.userArticleIconDiv:hover::after {
+    opacity: 0; /* 鼠标经过时设置为完全透明，实现阴影消失效果 */
+}
+.userArticleIcon {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    padding: 2.5px;
+    background-color: #d33a2c;
+    margin: 0;
+    transform: rotate(-15deg);
+    transition: transform 0.3s ease-in-out;
+}
+.userArticleIconDiv:hover .userArticleIcon {
+    transform: rotate(0deg);
+}
+/*作者和标题div*/
+.authorAndTitleDiv {
+    position: relative;
+    display: inline-block;
+    max-width: 790px;
+    bottom: 30px;
+    left: 10px;
+    word-break: break-all; /* 添加此行以实现英文内容换行 */
+}
+.authorAndTitleUl {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    list-style: none; /* 取消列表项前面的点 */
+    display: flex; /* 将列表项排列为一个垂直的行 */
+    flex-direction: column; /* 设置列表项为垂直方向排列 */
+}
+/*作者名称*/
+.authorLi {
+    padding-bottom: 15px;
+}
+.authorLi a {
+    color: #d33a2c;
+    font-size: 18px;
+    text-decoration: line-through;
+    font-style: normal;
+    font-family: Mija;
+    font-weight: bold;
+}
+.titleLi a{
+    color: #333;
+    text-decoration: none;
+    transition: color .1s linear;
+    padding: 0;
+    font-size: 22px;
+    font-family: Mija;
+    font-weight: bold;
+}
+.titleLi a:hover {
+    color: #d33a2c;
+}
+/*日期和文章简介*/
+.articleContentDiv {
+    position: relative;
+    max-width: 775px;
+    height: auto;
+    left: 70px;
+    bottom: 16px;
+    line-height: 1.7; /* 可以根据需要调整行距的值 */
+    word-break: break-all; /* 添加此行以实现英文内容换行 */
+}
+.dateAndBriefIntroductionSpan {
+    font-family: "微软雅黑 Light";
+    font-size: 18px;
+}
+.contentSpan {
+    font-size: 18px;
+    color: #333;
+    font-family: Elena;
+}
+/*阅读图标*/
+.commentAndReadDiv {
+    position: absolute;
+    width: auto;
+    height: auto;
+    top: 90px;
+    left: 1050px;
+    margin: 0;
+    padding: 0;
+    /*
+    background-color: #91aee1;
+    */
+    display: inline-block;
+    font-family: "微软雅黑 Light";
+}
+.commentAndReadUl {
+    list-style: none; /* 取消列表项前面的点 */
+    display: flex; /* 将列表项排列为一个垂直的行 */
+    flex-direction: column; /* 设置列表项为垂直方向排列 */
+}
+.commentAndReadUl li {
+    padding-bottom: 10px;
+}
+.readImg {
+    width: 18px;
+    height: 18px;
+}
+.commentImg {
+    width: 18px;
+    height: 18px;
+}
+/*阅读更多*/
+.moreArticleSpan {
+    position: relative;
+    left: 70px;
+    bottom: 4px;
+}
+.moreArticleSpan a {
+    font-family: Mija;
+    color: #006fc6;
+    font-size: 18px;
+    font-weight: bold;
+}
+/*分页栏*/
+.paginationColumnSpan {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    padding-top: 50px;
+}
+
+.paginationColumnId {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paginationColumnId li {
+    display: inline;
+    padding: 12px;
+}
+
+.paginationColumnId li a {
+    display: inline-block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.paginationColumnId li a:hover {
+    background-color: #d33a2c;
+}
+.navigationIcon {
+    width: 16px;
+    height: 20px;
+    padding: 0;
+    margin: 0;
+}

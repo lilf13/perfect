@@ -1,0 +1,754 @@
+/*页面为文章*/
+#article {
+    background-color: rgba(248, 248, 255, 0.35);
+}
+/*主要页面*/
+#mainDiv {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    z-index: 1;
+}
+/*标签栏*/
+.tag {
+    position: relative;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.2); /* 阴影样式 */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 60px;
+    overflow: hidden;
+}
+.tag ul {
+    position: relative;
+    padding-left: 10%;
+    top: -30%;
+}
+.tag ul li{
+    display: inline-block;
+    margin-right: 50px;
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 15px;
+    background-color: #ffe7e7;
+    border: 1px solid transparent; /* 定义 2px 的边框，颜色为透明 */
+}
+.tag ul li:hover {
+    border-color: #eaa6a6 !important; /* 鼠标悬停时改变边框颜色 */
+}
+.tag ul li a {
+    text-decoration: none;
+    font-size: 14px;
+    font-family: "微软雅黑 Light";
+    font-weight: bold;
+    color: #d33a2c;
+}
+/*文章详情div*/
+#articleDetailsDiv {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.headDiv {
+    position: relative;
+    height: auto;
+    margin-top: 50px;
+    margin-left: 130px;
+    margin-right: 130px;
+    width: 765px;
+    padding-bottom: 30px;
+    display: inline-block;
+    overflow: hidden;
+}
+/*作者时间评论*/
+.nameDateCommentUl {
+    position: relative;
+    list-style: none; /* 去除列表项的默认样式 */
+    display: flex; /* 使用 Flexbox 布局 */
+    padding-bottom: 15px;
+    padding-left: 0;
+}
+/*作者*/
+.author {
+    font-size: 20px;
+    color: #d33a2c;
+    text-decoration: line-through;
+    font-style: normal;
+    font-family: Mija;
+    font-weight: bold;
+}
+/*日期*/
+.date {
+    font-size: 18px;
+    color: #585858;
+    font-family: "Elena";
+}
+/*评论*/
+.comment {
+    font-size: 20px;
+    color: #006fc6;;
+}
+/*阅读时间*/
+.neckDiv {
+    position: relative;
+    height: auto;
+    width: 765px;
+    margin-left: 130px;
+    padding-bottom: 35px;
+    margin-right: 130px;
+    overflow: hidden;
+    border-bottom: 3px solid #e5e5e5;
+    display: inline-block;
+
+}
+.readTimeUl {
+    position: relative;
+    list-style: none; /* 去除列表项的默认样式 */
+    padding: 15px;
+    font-size: 17px;
+    color: black;
+    margin: 0 0 25px;
+    background-color: #f6f6f6;
+    border-radius: 12px;
+    display: inline-block;
+}
+.readTimeUl li {
+    display: inline-block;
+}
+.readImg {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    top: 3px;
+}
+/*标签图*/
+.labelIcon {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    top: 3px;
+}
+/*内容div*/
+.wordSpan {
+    color: #d33a2c;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.introductionSpan {
+    position: relative;
+    font-size: 20px;
+    font-style: italic;
+    color: #666;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    line-height: 1.7; /* 可以根据需要调整行距的值 */
+    word-break: break-all; /* 添加此行以实现英文内容换行 */
+}
+/*头像框和作者简介*/
+.headPortraitAndIntroductionDiv {
+    position: absolute;
+    left: 1039.5px;
+    top: 148px;
+    width: 350px;
+    height: auto;
+    padding: 0;
+}
+/*用户文章头像*/
+.userArticleIconDiv {
+    position: relative;
+    top: 2.5%;
+    margin: 0 0 0 35px;
+    padding-right: 15px;
+    padding-top: 10px;
+    display: inline-block;
+    cursor: pointer;
+}
+.userArticleIconDiv::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 100%;
+    height: 15px; /* 调整高度以控制阴影的明显程度 */
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2); /* 调整颜色和透明度以控制阴影的样式 */
+    transition: opacity 0.3s ease-in-out; /* 添加过渡效果 */
+    opacity: 1; /* 初始设置为完全显示 */
+}
+
+.userArticleIconDiv:hover::after {
+    opacity: 0; /* 鼠标经过时设置为完全透明，实现阴影消失效果 */
+}
+.userArticleIcon {
+    width: 140px;
+    height: 140px;
+    border-radius: 8px;
+    padding: 2.5px;
+    background-color: #d33a2c;
+    margin: 0;
+    transform: rotate(-15deg);
+    transition: transform 0.3s ease-in-out;
+}
+.userArticleIconDiv:hover .userArticleIcon {
+    transform: rotate(0deg);
+}
+/*作者简介*/
+.authorIntroductionDiv {
+    position: relative;
+    margin-top: 28px;
+}
+/*正文div*/
+.textDiv {
+    word-wrap: break-word; /* 自动换行 */
+    display: inline-block;
+    width: 765px;
+    margin: 20px 130px 20px;
+    font-size: 18px;
+    color: #3f3e3e;
+    overflow: hidden; /* 隐藏溢出内容 */
+    line-height: 1.55em;
+}
+.textDiv img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block; /* 去除图片默认的底部间距 */
+    margin: auto; /* 居中图片 */
+}
+.textDiv code,
+.textDiv pre {
+    white-space: pre-wrap; /* 保留空格和换行符 */
+    word-break: break-all; /* 按单词断行 */
+    overflow-wrap: break-word; /* 自动换行 */
+    display: block;
+    background-color: #f1f1f1;
+    padding: 10px;
+    font-family: Consolas, monospace;
+    font-size: 17px;
+    color: #333;
+    overflow-x: auto;
+}
+.textDiv table {
+    border-collapse: collapse;
+}
+.textDiv table th,td {
+    /* 表头和单元格的样式 */
+    border: 1px solid #ccc;
+    padding: 8px;
+    background-color: #ffffff;
+}
+/*评论发表div*/
+.commentPostingDiv {
+    position: absolute;
+    left: 909.5px;
+    top: 20px;
+    width: 350px;
+    height: 570px;
+    padding: 0;
+    display: inline-block;
+    overflow: hidden;
+}
+.commentPostingDiv textarea {
+    position: relative;
+    width: 320px;
+    height: 382px;
+    padding: 8px;
+    line-height: 1.3;
+    margin-top: 20px;
+    background-color: #effaff;
+    border-radius: 15px;
+    border-color: #e1e0e0;
+    border-width: 1px;
+    outline: none;
+    font-size: 20px;
+    margin-left: 7px;
+
+}
+.commentPostingDiv textarea:focus {
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+}
+/*按钮线条*/
+#buttonAndLineDiv {
+    position: relative;
+    width: 350px;
+    height: 70px;
+    margin-top: 30px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+#buttonDiv {
+    width: 180px;
+    height: 60px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #ffffff;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#commentPostingButton {
+    position: absolute;
+    width: 180px;
+    height: 60px;
+    background-color: #41b14f;
+    box-shadow: 0 4px #2d8f39;
+    border-radius: 15px;
+    border-color: #ffffff;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+/*评论发布成功通知*/
+#successfullyPostedCommentsDiv {
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #333232;
+    width: auto;
+    height: auto;
+    border-radius: 12px;
+    z-index: 10;
+    padding: 20px;
+    display: none;
+}
+#commentP {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+}
+
+/*评论展示*/
+#commentDisplayDiv {
+    position: relative;
+    word-wrap: break-word; /* 自动换行 */
+    display: inline-block;
+    width: 1400px;
+    min-height: 580px;
+    height: auto;
+    margin: 30px 0 20px 130px;
+    padding: 0;
+    font-size: 21px;
+    color: #3f3e3e;
+    overflow: hidden; /* 隐藏溢出内容 */
+    line-height: 1.55em;
+}
+/*优质评论框架*/
+#commentDivFramework {
+    position: relative;
+    width: 765px;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+/*暂无优质评论图片*/
+.highQualityCommentsIcon {
+    position: relative;
+    left: 280px;
+    width: 200px;
+    height: 200px;
+}
+.commentDiv {
+    position: relative;
+    background-color: #f0f0f0;
+    width: 745px;
+    height: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 10px;
+    border-radius: 15px;
+}
+/*评论发表者头像*/
+.commentPublisherDiv {
+    position: relative;
+    top: 2.5%;
+    margin: 0px 0px 0px 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    display: inline-block;
+    cursor: pointer;
+}
+.commentPublisherDiv::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 8px; /* 调整高度以控制阴影的明显程度 */
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2); /* 调整颜色和透明度以控制阴影的样式 */
+    transition: opacity 0.3s ease-in-out; /* 添加过渡效果 */
+    opacity: 1; /* 初始设置为完全显示 */
+}
+.commentPublisherDiv:hover::after {
+    opacity: 0; /* 鼠标经过时设置为完全透明，实现阴影消失效果 */
+}
+.commentPublisherImg {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 2.5px;
+    background-color: #d33a2c;
+    margin: 0;
+    transform: rotate(-15deg);
+    transition: transform 0.3s ease-in-out;
+}
+.commentPublisherDiv:hover .commentPublisherImg {
+    transform: rotate(0deg);
+}
+/*评论者名字和评论时间*/
+.commentatorAndTimeSpan {
+    position: relative;
+    bottom: 40px;
+    left: 10px;
+}
+/*评论详情div*/
+.commentDetailDiv {
+    position: relative;
+    left: 100px;
+    bottom: 20px;
+    width: 615px;
+    height: auto;
+    padding: 0;
+    margin: 0!important;
+    word-wrap: break-word; /* 自动换行 */
+    display: inline-block;
+}
+/*加载所有评论*/
+#allCommentsDiv {
+    position: relative;
+    width: 765px;
+    height: 70px;
+    margin-bottom: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#allCommentsButDiv {
+    width: 500px;
+    height: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #ffffff;
+    z-index: 5;
+}
+#allCommentsBut {
+    background-color: #0168b8;
+    width: 500px;
+    height: 50px;
+    box-shadow: 0 4px #0168b8;
+    border-radius: 15px;
+    border-color: #ffffff;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.expandCommentsDiv {
+    width: 622px;
+    height: 30px;
+    overflow: hidden;
+}
+.expandCommentsBut {
+    position: absolute;
+    left: 11.9%;
+    border: none;
+    background: #ffffff;
+    padding: 0px;
+    font-size: 14px;
+    color: #777888;
+    cursor: pointer;
+    outline: none;
+    z-index: 15;
+}
+/*评论展示中心*/
+#commentDisplayCenter {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 90%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    box-shadow: 0 0 50px rgb(144, 145, 145); /* 调整阴影效果的属性值 */
+    border-color: #ffffff;
+    z-index: 8;
+    border-radius: 15px;
+    overflow-y: auto;
+    display: none;
+}
+/*评论头部div*/
+.commentHeadDiv {
+    position: relative;
+    margin: 20px;
+    padding: 0;
+    height: 32px;
+}
+/*叉图*/
+#forkIcon {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: 0;
+    cursor: pointer;
+    z-index: 10;
+}
+/*笼罩div,阻止下层控件操作*/
+#shroudedInDiv {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 7;
+    display: none;
+}
+/*评论数*/
+.numberOfCommentsP {
+    position: relative;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    bottom: 2px;
+    font-weight: bold;
+    font-family: "微软雅黑 Light";
+}
+.numCommentSpan {
+    position: absolute;
+    font-size: 15px;
+}
+/*评论中心的评论显示框架*/
+#commentBodyDivFramework {
+    position: relative;
+}
+/*评论中心的评论显示div*/
+.commentBodyDiv {
+    position: relative;
+    margin: 20px;
+    height: auto;
+}
+/*评论中心评论者图片*/
+.commentatorByCenterImgDiv {
+    position: relative;
+    top: 2.5%;
+    margin: 0px 0px 0px 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    display: inline-block;
+    cursor: pointer;
+}
+.commentatorByCenterImgDiv::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 8px; /* 调整高度以控制阴影的明显程度 */
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2); /* 调整颜色和透明度以控制阴影的样式 */
+    transition: opacity 0.3s ease-in-out; /* 添加过渡效果 */
+    opacity: 1; /* 初始设置为完全显示 */
+}
+.commentatorByCenterImgDiv:hover::after {
+    opacity: 0; /* 鼠标经过时设置为完全透明，实现阴影消失效果 */
+}
+.commentatorByCenterImg {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    padding: 2.5px;
+    background-color: #d33a2c;
+    margin: 0;
+    transform: rotate(-15deg);
+    transition: transform 0.3s ease-in-out;
+}
+.commentatorByCenterImgDiv:hover .commentatorByCenterImg {
+    transform: rotate(0deg);
+}
+.commentatorAndTimeSpanBycenter {
+    position: relative;
+    bottom: 50px;
+    width: 85.5%;
+    left: 80px;
+}
+.commentDetailDivByCenter {
+    position: relative;
+    left: 79px;
+    bottom: 32px;
+    height: auto;
+    width: 85%;
+    padding: 0;
+    margin: 0!important;
+    word-wrap: break-word; /* 自动换行 */
+    display: inline-block;
+    font-family: "微软雅黑 Light";
+}
+/*回复*/
+.replySpan {
+    position: absolute;
+    right: 0;
+    top: -3px;
+    cursor: pointer;
+}
+.replyIcon {
+    position: relative;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+}
+.replySpan font:hover {
+    color: #7c7b7b;
+}
+/*点赞图*/
+.likeIcon {
+    position: relative;
+    top: 4px;
+    margin-left: 20px;
+    width: 20px;
+    height: 20px;
+    /*
+    fill: #c15730;
+    */
+}
+.commentResponseDiv {
+    position: relative;
+    width: 83%;
+    height: auto;
+    padding: 0 0 0 80px;
+    margin: 0;
+    /*overflow: hidden;*/
+}
+.commentPostingByCenterDiv {
+    position: relative;
+    background-color: rgba(245,246,247,0.8);
+    border-radius: 8px;
+    width: 103%;
+    height: 150px;
+    left: 0;
+    bottom: 15px;
+    display: none;
+    overflow: hidden;
+}
+.commentPostingTextarea {
+    position: relative;
+    margin-top: 20px;
+    width: 99.5%;
+    outline: none;
+    border: none;
+    background-color: rgba(248,249,251,0.8);
+    height: 75px;
+    line-height: 1.3;
+    font-family: 微软雅黑;
+}
+.replyButton {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 8px;
+    background-color: #fc5531;
+    color: #ffffff;
+    width: 70px;
+    height: 30px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+/*个人评论回复*/
+.personalCommentReplyDiv {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+.commentResponseDisplayDiv {
+    position: relative;
+    left: -1%;
+    margin-bottom: 10px;
+    height: auto;
+}
+/*个人评论回复用户头像*/
+.commentResponseImgDiv {
+    position: relative;
+    left: -10px;
+    top: 2.5%;
+    margin: 0px 0px 0px 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    display: inline-block;
+    cursor: pointer;
+}
+.commentResponseImgDiv::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 8px; /* 调整高度以控制阴影的明显程度 */
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2); /* 调整颜色和透明度以控制阴影的样式 */
+    transition: opacity 0.3s ease-in-out; /* 添加过渡效果 */
+    opacity: 1; /* 初始设置为完全显示 */
+}
+.commentResponseImgDiv:hover::after {
+    opacity: 0; /* 鼠标经过时设置为完全透明，实现阴影消失效果 */
+}
+.commentResponseImg {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    padding: 2.5px;
+    background-color: #d33a2c;
+    margin: 0;
+    transform: rotate(-15deg);
+    transition: transform 0.3s ease-in-out;
+}
+.commentResponseImgDiv:hover .commentResponseImg {
+    transform: rotate(0deg);
+}
+.commentatorAndTimeSpanByPersonCom {
+    position: relative;
+    bottom: 40px;
+    left: 60px;
+    width: 92.5%;
+}
+.replyToCommentsAndLikesSpan {
+    position: absolute;
+    right: -1%;
+    bottom: 1px;
+    cursor: pointer;
+}
+.commentDetailDivByPersonCom {
+    position: relative;
+    left: 61px;
+    bottom: 30px;
+    height: auto;
+    width: 85%;
+    padding: 0;
+    margin: 0!important;
+    word-wrap: break-word; /* 自动换行 */
+    display: inline-block;
+    font-family: "微软雅黑 Light";
+    font-size: 15px;
+}
+#commentPostingHiddenInformation {
+    display: none;
+}
+.replyBut {
+    border: none;
+    background: none;
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    cursor: pointer;
+}

@@ -1,0 +1,159 @@
+/*登录框*/
+#loginDiv {
+    position: fixed; /* 使用 fixed 代替 absolute */
+    width: 25vw;
+    height: 50vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border-radius: 15px;
+    z-index: 10;
+    display: none;
+}
+#inputDiv {
+    position: absolute;
+    top: 15%;
+    padding: 3%;
+    overflow: hidden;
+    width: 100%;
+}
+/*登录方式切换div*/
+#loginMethodDiv {
+    position: relative;
+    width: 96%;
+    height: 15%;
+    margin-bottom: 5%;
+}
+#loginMethodUl {
+    list-style: none; /* 移除默认的列表样式（圆点） */
+    padding: 0; /* 移除默认的内边距 */
+    margin: 0; /* 移除默认的外边距 */
+    display: flex; /* 使用 Flex 布局 */
+}
+#loginMethodUl li {
+    color: #121212;
+    margin-right: 30px;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+/*验证码登录方式切换*/
+#verificationCodeLi {
+    border-bottom: 3px solid #fc5531; /* 添加蓝色的下边线 */
+    font-weight: bold;
+}
+/*表单信息div*/
+/*邮箱验证码登录*/
+#emailVerificationDiv {
+    position: relative;
+    width: 96%;
+    height: 70%;
+    overflow: hidden;
+    /*
+    background-color: aqua;
+    */
+}
+/*邮箱和验证码输入*/
+.inputFormDiv {
+    position: relative;
+    width: 98%;
+    margin-bottom: 3vh;
+}
+.inputForm {
+    border: none;
+    border-bottom: 1px solid #bbb7b7; /* 添加底边线 */
+    height: 5vh;
+    width: 100%;
+    font-size: 15px;
+}
+/* 添加底边线样式，只在输入框获得焦点时显示 */
+.inputForm:focus {
+    outline: none; /* 去掉默认的聚焦效果，可以根据需要保留或修改 */
+    border-bottom: 1px solid #bbb7b7; /* 修改底边线的样式，可以根据需要自定义 */
+}
+/*邮箱验证码获取按钮*/
+#verificationCodeAcquisition {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    right: -2px;
+    top: 0;
+    width: 7vw;
+    height: 100%;
+    border: none;
+    border-bottom: 1px solid #bbb7b7;
+    background-color: white;
+    cursor: pointer;
+    color: #fc5531;
+    font-size: 15px;
+}
+#verificationCodeAcquisition:hover {
+    color: #bbb7b7;
+}
+/*邮箱密码方式登录*/
+#passwordDiv {
+    position: relative;
+    width: 96%;
+    height: 70%;
+    overflow: hidden;
+    display: none;
+}
+/*忘记密码*/
+#forgotPasswordBut {
+    position: absolute;
+    top: 105px;
+    right:0px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+#forgotPasswordBut:hover {
+    color: #bbb7b7;;
+}
+/*登录或注册按钮*/
+.lgBut {
+    position: relative;
+    width: 100%;
+    height: 5vh;
+    background-color: #fc5531;
+    border: white;
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 5vh;
+}
+.lgBut:hover {
+    background-color: #ec6b4f;
+}
+/*错误信息*/
+.format {
+    color: red;
+    font-size: 13px;
+}
+#verificationCodeError {
+    position: absolute;
+    left: 0;
+    top: 40px;
+}
+#passwordError {
+    position: absolute;
+}
+/*登录介绍*/
+#introductionToLogin p {
+    font-size: 18px;
+    font-family: 微软雅黑;
+    color: #ec6b4f;
+    text-align: center;
+}
+/*叉图*/
+#crossPlot {
+    position: absolute;
+    font-size: 30px;
+    top: -10px;
+    right: 2px;
+    color: #bbb7b7;
+    cursor: pointer;
+}
+#crossPlot:hover {
+    color: #d3d1d1;
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hnust.repository.BlogMapper">
+    <resultMap id="blogResultMap" type="Blog">
+        <id property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="title" column="title"/>
+        <result property="contentPath" column="content_path"/>
+        <result property="introduce" column="introduce"/>
+        <result property="type" column="type"/>
+        <result property="approvalStatus" column="approval_status"/>
+        <result property="publishDate" column="publish_date"/>
+        <result property="lastEditDate" column="last_edit_date"/>
+        <association property="user"
+                     select="com.hnust.repository.UserMapper.selectByUserId"
+                     column="user_id"
+                     fetchType="lazy"/>
+    </resultMap>
+
+    <insert id="saveBlog" useGeneratedKeys="true" keyProperty="id">
+        insert into blog(id, user_id, title, content_path, introduce, type, approval_status, publish_date, last_edit_date)
+            VALUE (#{id},#{userId},#{title},#{contentPath},#{introduce},#{type},#{approvalStatus},#{publishDate},#{lastEditDate})
+    </insert>
+
+    <select id="selectAllAdoptArticleStep" resultMap="blogResultMap">
+        select id, user_id, title, content_path, introduce, type, approval_status, publish_date, last_edit_date from blog
+        where approval_status='已发布' order by publish_date desc
+    </select>
+
+    <select id="selectArticleByBlogIds" resultMap="blogResultMap">
+        select id, user_id, title, content_path, introduce, type, approval_status, publish_date, last_edit_date from blog
+        where approval_status='已发布' and (
+        <foreach collection="blogIds" item="blogId" separator="or">
+            id=#{blogId}
+        </foreach>
+        )
+        order by publish_date desc
+    </select>
+</mapper>

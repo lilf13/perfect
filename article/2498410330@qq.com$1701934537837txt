@@ -1,0 +1,46 @@
+<p>线程简介</p><p><img src="../../../../img/articleImg/2498410330@qq.com$1701934346605_image.png" alt="" data-href="" style=""/></p><p>Windows操作系统是多任务操作系统，它以进程为单位。一个进程是一个包含有自身地址的程序，每个独立执行的程序都称为进程。也就是说每个正在执行的程序都是一个进程。系统可以分配给每一个进程有一段有限的使用CPU的时间（也可以称为CPU时间片），CPU在这段时间中执行某个进程，然后下一个时间片又跳至另一个进程中去执行。由于CPU转换比较快，所以使得每个进程好像是同时执行一样。<br>下图表明了Windows操作系统的执行模式<br><img src="../../../../img/articleImg/2498410330@qq.com$1701934373619_image.png" alt="" data-href="" style=""/></p><p>创建线程<br>继承Thread类<br>Thread 类是java.lang包中的一个类，从这个类中实例化的对象代表线程，程序员启动一个新线程需要建立Thread实例。Thread类中常用的两个构造方法如下：<br><br>public Thread()：创建一个新的线程对象。<br>public Thread(String threadName)：创建一个名称为threadName的线程对象。<br>继承Thread类创建一个新的线程的语法如下：</p><pre><code >public class ThreadTest extends Threadf {
+}
+ </code></pre><p><br></p><p>完成线程真正功能的代码放在类的run0方法中，当一个类继承Thread类后，就可以在该类中覆盖run0方法，将实现该线程功能的代码写入runO方法中，然后调用 Thread类中的start0方法执行线程也就是调用run0方法。</p><p>Thread 对象需要一个任务来执行，任务是指线程在启动时执行的工作，该工作的功能代码被写在run0方法中。run0方法必须使用以下语法格式：<br></p><pre><code >public void run() {
+}</code></pre><p><br></p><p>当执行一个线程程序时，就自动产生一个线程，主方法正是在这个线程上运行的。当不再启动其他线程时，该程序就为单线程程序，如本章以前的程序都是单线程程序。主方法线程启动由Java 虚拟机负责，程序员负责启动自己的线程。代码如下:</p><pre><code >public static void main(String[] args){
+        new ThreadTest().start();
+
+}</code></pre><p>实现Runnable 接口的程序会创建一个Thread对象，并将 Runnable 对象与Thread对象相关联。Thread类中有以下两个构造方法：<br><br>public Thread(Runnable target)<br>public Thread(Runnable target,String name)<br>这两个构造方法的参数中都存在Runnable 实例，使用以上构造方法就可以将Runnable实例与Thread实例相关联。<br><br>使用Runnable 接口启动新的线程的步骤如下：<br><br>建立Runnable对象<br>使用参数为Runnable对象的构造方法创建Thread实例<br>调用startO方法启动线程<br>通过Runnable 接口创建线程时，程序员首先需要编写一个实现Runnable接口的类，然后实例化该类的对象，这样就建立了Runnable对象；接下来使用相应的构造方法创建Thread 实例；最后使用该实例调用Thread类中的startO方法启动线程。<br><img src="../../../../img/articleImg/2498410330@qq.com$1701934466220_image.png" alt="" data-href="" style=""/></p><pre><code >import java.awt.Container;
+ 
+import javax.swing.*;
+ 
+public class SwingAndThread extends JFrame{
+	int count = 0;								//图标横坐标
+	
+	public SwingAndThread() {
+		setBounds(300,200,250,100);				//绝对定位窗体大小与位置
+		Container container = getContentPane();	//主容器
+		container.setLayout(null);				//使窗体不使用任何布局管理器
+		
+		Icon icon = new ImageIcon("src/1.gif");	//图标对象
+		JLabel jl =new JLabel(icon);			//显示图标的标签
+		jl.setBounds(10,10,200,50);				//设置标签的位置与大小
+		Thread t = new Thread() {				//定义匿名线程对象
+			public void run() {
+				while (true) {
+					jl.setBounds(count,10,200,50);	//将标签的横坐标用变量表示
+					try {
+						Thread.sleep(500);			//使线程休眠500毫秒
+					}catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					count +=4;						//使横坐标每次增加4
+					if(count&gt;=200) {
+						count = 10;					//当图标到达标签的最右时，使其回到标签最左边
+					}
+				}
+			}
+		};
+		t.start();									//启动线程
+		container.add(jl);							//将标签添加到容器中
+		setVisible(true);							//使窗体可见
+		setDefaultCloseOperation(EXIT_ON_CLOSE);	//设置窗体的关闭方式
+	}	
+	public static void main(String[] args) {
+		new SwingAndThread();
+	}
+}//例题20.2</code></pre><p><img src="../../../../img/articleImg/2498410330@qq.com$1701934484844_image.png" alt="" data-href="" style=""/></p><p>线程的生命周期<br>下图描述了线程生命周期中的各种状态 </p><p><img src="../../../../img/articleImg/2498410330@qq.com$1701934496463_image.png" alt="" data-href="" style=""/></p>

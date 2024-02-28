@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hnust.repository.BlogTagMapper">
+    <resultMap id="blogTagResultMapBySelectTag" type="BlogTag">
+        <id column="blog_id" property="blogId"/>
+        <result column="tag_id" property="tagId"/>
+        <association property="tag"
+                     select="com.hnust.repository.TagMapper.selectByTagId"
+                     column="tag_id"
+                     fetchType="lazy"/>
+    </resultMap>
+
+    <insert id="saveBolgTag" useGeneratedKeys="true" keyProperty="id">
+        insert into blog_tag(blog_id,tag_id) values
+        <foreach collection="blogTags" item="blogTag" separator=",">
+            (#{blogTag.blogId},#{blogTag.tagId})
+        </foreach>
+    </insert>
+
+
+    <select id="selectByBlogIdStep" resultMap="blogTagResultMapBySelectTag">
+        select blog_id,tag_id from blog_tag where blog_id=#{blogId}
+    </select>
+
+    <select id="selectByTagId">
+        select blog_id from blog_tag where tag_id=#{tagId}
+    </select>
+</mapper>

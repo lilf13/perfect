@@ -1,0 +1,56 @@
+body {
+    background-color: #efe9e9;
+}
+/*页面为车间*/
+#aLiteraryCreation {
+    background-color: rgba(248, 248, 255, 0.35);
+}
+/*个人中心进入*/
+.personalIcon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    padding: 0px;
+    margin: 0;
+    right: 5%;
+    top: 3.1%;
+    cursor: pointer;
+    z-index: 999999;
+}
+/*发布成功div*/
+#successDiv {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 55%;
+    height: 50%;
+    background-color: #ffffff;
+}
+#successDiv p{
+    position: absolute;
+    top: 16%;
+    left: 35%;
+    color: #2f2e2e;
+    font-weight: bold;
+    font-size: 24px;
+}
+#successIcon {
+    position: absolute;
+    width: 250px;
+    height: 220px;
+    top: 40%;
+    left: 34%;
+}
+#successDiv a {
+    position: absolute;
+    padding: 8px;
+    bottom: 0;
+    right: 0;
+    text-decoration: none;
+    font-size: 18px;
+    color: #646262;
+}
+#successDiv a:hover {
+    color: #020101;
+}
